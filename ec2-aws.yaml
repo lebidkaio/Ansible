@@ -19,6 +19,7 @@
 
      - name: Task # 1 - Create my security group
        local_action: 
+        vpc_id: demo-ansible-sg-deployed
          module: ec2_group
          name: "{{ security_group }}"
          description: sg-00698f81f5f478779
@@ -54,5 +55,5 @@
        local_action: ec2_tag resource={{ item.id }} region={{ region }} state=present
        with_items: "{{ ec2.instances }}"
        args:
-         tags:
+         tags: 
            Name: Demo-deployed-ec2-fromAnsible
