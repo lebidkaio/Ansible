@@ -21,7 +21,7 @@
        local_action: 
          module: ec2_group
          name: "{{ security_group }}"
-         description: Security Group for webserver Servers
+         description: sg-00698f81f5f478779
          region: "{{ region }}"
          rules:
             - proto: tcp
@@ -54,5 +54,5 @@
        local_action: ec2_tag resource={{ item.id }} region={{ region }} state=present
        with_items: "{{ ec2.instances }}"
        args:
-         tags:
+         tags: type
            Name: Demo-deployed-ec2-fromAnsible
