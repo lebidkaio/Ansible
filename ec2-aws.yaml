@@ -47,7 +47,7 @@
        register: basic_firewall
      - name: Task # 2 Launch the new EC2 Instance
        local_action:  amazon.aws.ec2_instance 
-                      group={{ security_group }} 
+                      security_group={{ security_group }} 
                       instance_type={{ instance_type}} 
                       image={{ image }} 
                       wait=true 
