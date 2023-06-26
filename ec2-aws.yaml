@@ -8,7 +8,7 @@
    vars:
      keypair: ec2-deployed-ansible
      instance_type: t2.small
-     image: ami-022e1a32d3f742bd8
+     image: al2023-ami-2023.0.20230614.0-kernel-6.1-x86_64
      wait: yes
      group: webserver
      count: 1
