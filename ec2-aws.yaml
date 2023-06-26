@@ -6,7 +6,7 @@
    tags: provisioning
 
    vars:
-     keypair: ec2-deployed-ansible
+     key_name: ec2-deployed-ansible
      instance_type: t2.small
      image:
      id: ami-022e1a32d3f742bd8
@@ -16,6 +16,8 @@
      region: us-east-1
      security_group: Ec2-ansible-deployed-SG
      vpc_id: vpc-0cbebaf04c2e18173  # Replace with the actual VPC ID
+     assign_public_ip: yes
+
    
    tasks:
 
