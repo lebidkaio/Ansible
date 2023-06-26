@@ -12,8 +12,7 @@
       security_group: default
     tags:
       foo: bar
-   
-   tasks:
+    tasks:
 
      - name: Task # 1 - Create my security group
        local_action: 
