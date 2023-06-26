@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Criar banco de dados Aurora
+      aurora:
+        command: create
+        instance_name: aurora-teste
+        db_name: teste
+        instance_type: db.t2.small
+        master_username: admin
+        master_password: MyPassword123
+        subnet_group_name: aurora-subnet-group
+        security_group: aurora-security-group
+        region: us-west-2
+      register: resultado_criacao_bd
+
+    - debug:
+        var: resultado_criacao_bd
