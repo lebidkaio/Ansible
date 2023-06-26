@@ -6,7 +6,7 @@
     tags: provisioning
 
     vars:
-      keypair: ec2-deployed-ansible
+      key_name: ec2-deployed-ansible
       instance_type: t2.small
       image: 
         id: ami-022e1a32d3f742bd8
@@ -50,7 +50,7 @@
           image: "{{ image }}"
           wait: "{{ wait }}"
           region: "{{ region }}"
-          keypair: "{{ keypair }}"
+          secret_key: "{{ key_name }}"
           count: "{{ count }}"
           aws_access_key: "{{ aws_access_key }}"
           aws_secret_key: "{{ aws_secret_key }}"
