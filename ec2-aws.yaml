@@ -6,7 +6,7 @@
    tags: provisioning
 
    vars:
-     keypair: key-0a54740d6f5d55ac5
+     access_key: key-0a54740d6f5d55ac5
      instance_type: t2.small
      image:
      id: ami-022e1a32d3f742bd8
