@@ -6,7 +6,7 @@
    tags: provisioning
 
    vars:
-     key_name: ec2-deployed-ansible
+     key_name: key-0a54740d6f5d55ac5
      instance_type: t2.small
      image:
      id: ami-022e1a32d3f742bd8
