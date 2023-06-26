@@ -6,15 +6,20 @@
    tags: provisioning
 
    vars:
-     keypair: key-0a54740d6f5d55ac5
+     key_name: key-0a54740d6f5d55ac5
      instance_type: t2.small
      image:
-     id: ami-007855ac798b5175e
+     id: ami-022e1a32d3f742bd8
      wait: yes
      group: webserver
-     count: 1
+     count: 10
      region: us-east-1
      security_group: Ec2-ansible-deployed-SG
+     vpc_id: vpc-0cbebaf04c2e18173  # Replace with the actual VPC ID
+     assign_public_ip: yes
+     aws_access_key: AKIAZSOD5UPOOLWIUOP5
+     aws_secret_key: 7QvJq4GgpV/z+DZyOI644WxE/BVJ98IVt14pEydE
+
    
    tasks:
 
@@ -24,6 +29,7 @@
          name: "{{ security_group }}"
          description: Security Group for webserver Servers
          region: "{{ region }}"
+         vpc_id: "{{ vpc_id }}"  # Specify the VPC ID
          rules:
             - proto: tcp
               from_port: 22
@@ -41,19 +47,22 @@
             - proto: all
               cidr_ip: 0.0.0.0/0
        register: basic_firewall
+       
      - name: Task # 2 Launch the new EC2 Instance
-       local_action:  amazon.aws.ec2_instance
-                      group={{ security_group }} 
+       local_action:  amazon.aws.ec2_instance 
+                      security_group={{ security_group }} 
                       instance_type={{ instance_type}} 
                       image={{ image }} 
                       wait=true 
                       region={{ region }} 
-                      keypair={{ keypair }}
+                      secret_key={{ key_name }}
                       count={{count}}
+                      aws_access_key={{ aws_access_key }}
+                      aws_secret_key={{ aws_secret_key }}
        register: ec2
      - name: Task # 3 Add Tagging to EC2 instance
        local_action: ec2_tag resource={{ item.id }} region={{ region }} state=present
        with_items: "{{ ec2.instances }}"
        args:
-         tags:
-           Name: MyTargetEc2Instance
+         tags: 
+           Name: Demo-deployed-ec2-fromAnsible
