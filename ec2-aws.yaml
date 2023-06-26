@@ -13,7 +13,7 @@
      wait: yes
      group: webserver
      count: 1
-     region: us-east-1
+     region: us-east-2
      security_group: Ec2-ansible-deployed-SG
      vpc_id: vpc-0cbebaf04c2e18173  # Replace with the actual VPC ID
      assign_public_ip: yes
