@@ -6,7 +6,7 @@
    tags: provisioning
 
    vars:
-     key_name: ec2-deployed-ansible
+     #key_name: ec2-deployed-ansible
      instance_type: t2.small
      image:
      id: ami-022e1a32d3f742bd8
@@ -52,7 +52,6 @@
                       image={{ image }} 
                       wait=true 
                       region={{ region }} 
-                      keypair={{ keypair }}
                       count={{count}}
        register: ec2
      - name: Task # 3 Add Tagging to EC2 instance
