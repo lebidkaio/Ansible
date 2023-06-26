@@ -1,21 +1,17 @@
 ---
- - name:  provisioning EC2 instances using Ansible
-   hosts: localhost
-   connection: local
-   gather_facts: False
-   tags: provisioning
-
-   vars:
-     keypair: ec2-deployed-ansible
-     instance_type: t2.small
-     image:
-     id: ami-022e1a32d3f742bd8
-     wait: yes
-     group: webserver
-     count: 1
-     region: us-east-1
-     security_group: Ec2-ansible-deployed-SG
-     vpc_id: vpc-0cbebaf04c2e18173  # Replace with the actual VPC ID
+# ensure number of instances running with a tag matches exact_count
+- name: start multiple instances
+  amazon.aws.ec2_instance:
+    instance_type: t2.small
+    image_id: ami-022e1a32d3f742bd8
+    exact_count: 1
+    region: us-east-2
+    vpc_subnet_id: vpc-0cbebaf04c2e18173
+    network:
+      assign_public_ip: true
+      security_group: default
+    tags:
+      foo: bar
    
    tasks:
 
