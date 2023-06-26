@@ -52,7 +52,7 @@
                       image={{ image }} 
                       wait=true 
                       region={{ region }} 
-                      key_name={{ key_name }}
+                      keypair={{ key_name }}
                       count={{count}}
        register: ec2
      - name: Task # 3 Add Tagging to EC2 instance
