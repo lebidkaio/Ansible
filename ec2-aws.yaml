@@ -17,8 +17,8 @@
      security_group: Ec2-ansible-deployed-SG
      vpc_id: vpc-0cbebaf04c2e18173  # Replace with the actual VPC ID
      assign_public_ip: yes
-     aws_access_key: AKIAZSOD5UPOOLWIUOP5
-     aws_secret_key: 7QvJq4GgpV/z+DZyOI644WxE/BVJ98IVt14pEydE
+     #aws_access_key: AKIAZSOD5UPOOLWIUOP5
+     #aws_secret_key: 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
 
    
    tasks:
@@ -57,8 +57,8 @@
                       region={{ region }} 
                       secret_key={{ key_name }}
                       count={{count}}
-                      aws_access_key={{ aws_access_key }}
-                      aws_secret_key={{ aws_secret_key }}
+                      #aws_access_key={{ aws_access_key }}
+                      #aws_secret_key={{ aws_secret_key }}
        register: ec2
      - name: Task # 3 Add Tagging to EC2 instance
        local_action: ec2_tag resource={{ item.id }} region={{ region }} state=present
