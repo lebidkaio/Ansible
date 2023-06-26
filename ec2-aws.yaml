@@ -17,8 +17,8 @@
      security_group: Ec2-ansible-deployed-SG
      vpc_id: vpc-0cbebaf04c2e18173  # Replace with the actual VPC ID
      assign_public_ip: yes
-     #aws_access_key: AKIAZSOD5UPOOLWIUOP5
-     #aws_secret_key: 7QvJq4GgpV/z+DZyOI644WxE/BVJ98IVt14pEydE
+     aws_access_key: AKIAZSOD5UPOOLWIUOP5
+     aws_secret_key: 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
 
    
    tasks:
