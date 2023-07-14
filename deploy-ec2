@@ -15,7 +15,7 @@
      count: 1
      region: us-east-1
      security_group: Ec2-ansible-deployed-SG
-     vpc_id: vpc-0cbebaf04c2e18173  # Replace with the actual VPC ID
+     vpc_id: vpc-0d2271b5ff720d8ee  # Replace with the actual VPC ID
      assign_public_ip: yes
 
    
